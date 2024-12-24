@@ -1,0 +1,10 @@
+/* Add any global styles here */
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
