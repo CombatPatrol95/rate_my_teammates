@@ -1,0 +1,44 @@
+spring:
+  # Database Configuration
+  datasource:
+    url: jdbc:h2:mem:ratemyteammatesdb
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+  
+  # JPA Configuration
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  
+  # H2 Console Configuration
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: false
+
+# Application Configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+# JWT Configuration
+app:
+  jwt:
+    secret: ${JWT_SECRET:ratemyteammatesSecretKeyForJWTAuthenticationWhichShouldBeVeryLongAndSecure}
+    expiration-ms: 86400000  # 24 hours
+    
+# Logging Configuration
+logging:
+  level:
+    org.springframework.web: INFO
+    com.ratemyteammates: DEBUG
+    org.hibernate: INFO 
