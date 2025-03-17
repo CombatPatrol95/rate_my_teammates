@@ -10,11 +10,17 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: none  # Disable Hibernate DDL auto since we're using schema.sql
     show-sql: true
     properties:
       hibernate:
         format_sql: true
+  
+  # SQL initialization
+  sql:
+    init:
+      mode: always  # Always initialize the database in development
+      platform: h2
   
   # H2 Console Configuration
   h2:

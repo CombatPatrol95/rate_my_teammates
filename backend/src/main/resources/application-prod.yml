@@ -1,0 +1,39 @@
+spring:
+  # Database Configuration
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:ratemyteammates}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  
+  # JPA Configuration
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate  # Use validate in production, since schema is managed by schema.sql
+    show-sql: false
+    
+  # SQL initialization
+  sql:
+    init:
+      mode: never  # Don't automatically run schema.sql/data.sql in production
+      platform: postgresql
+
+# Application Configuration
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: /api
+
+# JWT Configuration
+app:
+  jwt:
+    secret: ${JWT_SECRET}  # This should be set as an environment variable in production
+    expiration-ms: 86400000  # 24 hours
+    
+# Logging Configuration
+logging:
+  level:
+    org.springframework.web: WARN
+    com.ratemyteammates: INFO
+    org.hibernate: WARN 
