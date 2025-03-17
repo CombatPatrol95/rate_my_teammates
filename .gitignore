@@ -1,1 +1,7 @@
 .idea/
+frontend/node_modules/
+backend/target/
+backend/logs/
+backend/h2-console/*
+
+
