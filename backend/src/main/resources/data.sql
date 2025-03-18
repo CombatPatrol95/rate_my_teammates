@@ -2,8 +2,8 @@
 -- It will run automatically when Spring Boot starts with spring.sql.init.mode=always
 
 -- Clear existing data
-TRUNCATE TABLE users CASCADE;
-TRUNCATE TABLE teammate_ratings CASCADE;
+DELETE FROM teammate_ratings;
+DELETE FROM users;
 
 -- Reset sequences
 ALTER SEQUENCE IF EXISTS users_id_seq RESTART WITH 1;
